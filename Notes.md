@@ -8,7 +8,8 @@ Maybe we should Kubernetes next time? (Or both?)
 - Created a 4-cpu, 16GB memory, Lightsail instance.
 - Tied it to a static IPv4 address. 
 - Setup to allow firewall to let in 80 and 443.
-- Used/Installed `caddy` as a reverse-proxy for the student projects.
+- Used/Installed `caddy` as a reverse-proxy web server for the student projects.
+  - it's very simple to set up
 - Installed `docker` to support the projects
 - I had to install nd compile the latest `golang` to get `caddy` to compile.
   - There is no binary image of caddy for Amazon Linux (which what I installed when creating instance)
