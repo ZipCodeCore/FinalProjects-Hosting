@@ -8,6 +8,9 @@ In order to
 - Setup to allow firewall to let in 80 and 443.
 - Used/Installed `caddy` as a reverse-proxy for the student projects.
 - Installed `docker` to support the projects
+- I had to install nd compile the latest `golang` to get `caddy` to compile.
+  - There is no binary image of caddy for Amazon Linux (which what I installed when creating instance)
+
 
 ### Caddyfile for the reverse-proxy
 
@@ -15,12 +18,57 @@ This file mapped the names like `project1name.zipcode.rocks` to `localhost:8086`
 Several groups had to sanitize their code because they had CORS problems (needed to fix a CORS pattern).
 Several groups had to sanitize source to remove `localhost:8080` references, after we assigned a new project port.
 
+Had to `caddy run` in the directory where the `Caddyfile` was.
+
+`/etc/caddy/Caddyfile` 
+
+```
+{
+	debug
+	log {
+		output file /var/log/access.log
+	}
+}
+
+xo.zipcode.rocks {
+	root * /home/ec2-user/zcw
+
+	file_server {
+		index index.html
+	}
+}
+
+pp.zipcode.rocks paperplane.zipcode.rocks {
+        reverse_proxy localhost:8086
+}
+klasschat.zipcode.rocks {
+        reverse_proxy localhost:8087
+}
+newscraft.zipcode.rocks {
+        reverse_proxy localhost:8088
+}
+duryou.zipcode.rocks {
+        reverse_proxy localhost:8089
+}
+zipflix.zipcode.rocks {
+        reverse_proxy localhost:8090
+}
+```
 ### Changes to DNS for `xo.zipcode.rocks`
 
 We made a `A` record for each project.
-Created a `project1name.zipcode.rocks` record that pointed to the host's IPv4 address.
+Created a `project-name.zipcode.rocks` record that pointed to the host's IPv4 address.
 CNAMEs wouldn't work.
 One for each project.
+
+```
+    A	xo	18.221.94.201
+# and then for each project
+	A	paperplane	18.221.94.201
+    ...
+```
+
+(`18.221.94.201` was the IPv4 static address of the instance.)
 
 ### Each project's PORT assignments
 
@@ -32,7 +80,7 @@ We also assigned special ports for the DATABASES.
 With docker, you cannot have two MySQLs both running on default port 3306.
 So we assigned all the MySQL and Postgres servers a different port so they wouldn't collide.
 All the student's projects had to change the PORT for the DB _everywhere in their project source._
-(Not just the ports in the app.ini files in the jhipster projects. This was counter-intuitive, but `app.ini` was not enough.)
+(Not just the ports in the app.yml files in the jhipster projects. This was counter-intuitive, but `app.yml` was not enough.)
 
 ## Student-Group access
 
@@ -55,6 +103,10 @@ Each group had to get their project running on a DEV machine on their assigned P
 ```
 git pull
 
+npm run java:docker
 
+docker-compose -f src/main/docker/app.yml up
 ```
 
+The NPM command did a build and created the jar.
+The `docker-compose` did the launch of the tasks needed for the project.
