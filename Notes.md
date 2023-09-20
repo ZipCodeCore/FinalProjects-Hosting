@@ -1,6 +1,8 @@
 # Notes on what we did
 
-In order to 
+In order to HOST the final projects of 9.1, we created a AWS instance to run them all and give them last minute experience with Docker.
+Maybe we should Kubernetes next time? (Or both?)
+
 ## Setup
 
 - Created a 4-cpu, 16GB memory, Lightsail instance.
