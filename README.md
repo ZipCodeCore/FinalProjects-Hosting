@@ -5,4 +5,6 @@ Notes on how to setup a AWS Lightsail instance to host final ZCW projects for _D
 
 Assumes you have access to ZCW's AWS account, and have access to ZCW's DNS registry.
 
-Initial Notes from 9.1, summer of 2023.
+See _final_ projects in __ZipCodeCore__
+
+_Initial Notes from 9.1, summer of 2023._
