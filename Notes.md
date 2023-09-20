@@ -91,6 +91,13 @@ Used standard PEM file to grant students access using a simple shell script.
 
 Distributed a TGZ of the shell script `xo` and it's associated .PEM private key file.
 
+```
+# xo contents
+ssh -i ~/.ssh/LightsailDefaultKey-us-east-2.pem ec2-user@xx.xx.xx.xx
+```
+
+You PEM file name will be different.
+
 Students need to place PEM file into their `.ssh/` folder, making sure that the chmod is `0400`.
 Then, place the `xo` file into `~/bin` making sure that `~/bin` is on the shell PATH...
 
