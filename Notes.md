@@ -120,3 +120,9 @@ docker-compose -f src/main/docker/app.yml up -d
 
 The NPM command did a build and created the jar.
 The `docker-compose` did the launch of the tasks needed for the project. The `-d` brings the project up in daemon mode.
+
+### Swap
+
+After I moved the files on 29 Sept, I also increased swap on the xo host. 
+I used this [How To Add Swap Space on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04) article to make it happen.
+
