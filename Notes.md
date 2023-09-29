@@ -115,8 +115,8 @@ git pull
 
 npm run java:docker
 
-docker-compose -f src/main/docker/app.yml up
+docker-compose -f src/main/docker/app.yml up -d
 ```
 
 The NPM command did a build and created the jar.
-The `docker-compose` did the launch of the tasks needed for the project.
+The `docker-compose` did the launch of the tasks needed for the project. The `-d` brings the project up in daemon mode.
