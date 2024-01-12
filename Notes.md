@@ -85,6 +85,21 @@ So we assigned all the MySQL and Postgres servers a different port so they would
 All the student's projects had to change the PORT for the DB _everywhere in their project source._
 (Not just the ports in the app.yml files in the jhipster projects. This was counter-intuitive, but `app.yml` was not enough.)
 
+## Added for 9242 - Group DB server
+
+added a mysql on 3388
+there is a strong password on the mysql root account. ask an instructor.
+
+create a spot for a group:
+
+_inside mysql as root_
+```
+create database blahblah;
+CREATE USER 'blahblah_user' IDENTIFIED BY 'blahblah_password';
+GRANT ALL PRIVILEGES ON prismdeck.* TO 'blahblah';
+FLUSH PRIVILEGES;
+```
+
 ## Student-Group access
 
 Used standard PEM file to grant students access using a simple shell script.
