@@ -100,6 +100,12 @@ GRANT ALL PRIVILEGES ON prismdeck.* TO 'blahblah';
 FLUSH PRIVILEGES;
 ```
 
+### to start the shared mysql server...
+
+```
+docker run -d --name zcw_942 -e MYSQL_ROOT_PASSWORD=somexstrongxpassword -p 3388:3306 mysql
+```
+
 ## Student-Group access
 
 Used standard PEM file to grant students access using a simple shell script.
