@@ -121,7 +121,7 @@ Distributed a TGZ of the shell script `xo` and it's associated .PEM private key 
 
 ```
 # xo contents
-ssh -i ~/.ssh/LightsailDefaultKey-us-east-2.pem ec2-user@xx.xx.xx.xx
+ssh -i ~/.ssh/LightsailDefaultKey-us-east-2.pem {ec2-user,ubuntu}@xx.xx.xx.xx
 ```
 
 You PEM file name will be different.
