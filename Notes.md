@@ -100,6 +100,13 @@ GRANT ALL PRIVILEGES ON prismdeck.* TO 'blahblah';
 FLUSH PRIVILEGES;
 ```
 
+and to test
+
+```
+mysql -u some_user -h machinename.zipcode.rocks -P 3388 -p some_db
+```
+
+
 ### to start the shared mysql server...
 
 ```
