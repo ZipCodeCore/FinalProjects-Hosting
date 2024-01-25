@@ -106,6 +106,11 @@ and to test
 mysql -u some_user -h machinename.zipcode.rocks -P 3388 -p some_db
 ```
 
+for postgres:
+
+```
+CREATE USER davide WITH PASSWORD 'jw8s0F4';
+```
 
 ### to start the shared mysql server...
 
