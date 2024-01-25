@@ -110,6 +110,7 @@ for postgres:
 
 ```
 CREATE USER davide WITH PASSWORD 'jw8s0F4';
+GRANT ALL PRIVILEGES ON DATABASE "someDB" to davide;
 ```
 
 ### to start the shared mysql server...
