@@ -96,7 +96,7 @@ _inside mysql as root_
 ```
 create database blahblah;
 CREATE USER 'blahblah_user' IDENTIFIED BY 'blahblah_password';
-GRANT ALL PRIVILEGES ON prismdeck.* TO 'blahblah';
+GRANT ALL PRIVILEGES ON blahblah.* TO 'blahblah';
 FLUSH PRIVILEGES;
 ```
 
